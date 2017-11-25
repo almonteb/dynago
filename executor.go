@@ -42,11 +42,11 @@ type AwsRequester interface {
 
 // Create an AWS executor with a specified endpoint and AWS parameters.
 func NewAwsExecutor(endpoint, region, accessKey, secretKey string) *AwsExecutor {
-	return newAwsExecutorToken(endpoint, region, accessKey, secretKey, "")
+	return NewAwsExecutorToken(endpoint, region, accessKey, secretKey, "")
 }
 
 // Create an AWS executor with a specified endpoint and AWS parameters.
-func newAwsExecutorToken(endpoint, region, accessKey, secretKey, sessionToken string) *AwsExecutor {
+func NewAwsExecutorToken(endpoint, region, accessKey, secretKey, sessionToken string) *AwsExecutor {
 	signer := aws.AwsSigner{
 		Region:       region,
 		AccessKey:    accessKey,
